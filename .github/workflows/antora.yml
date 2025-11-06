@@ -18,35 +18,39 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      # 1) tvoj repo
+      - name: Checkout docs repo
         uses: actions/checkout@v4
 
+      # 2) Node okruženje
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      # 1) instaliraj Antoru
+      # 3) Antora (tvoj projekat)
       - name: Install Antora
         run: npm install -D @antora/cli @antora/site-generator-default
 
-      # 2) kloniraj Antora UI (sa GitHub-a, da ne ide na gitlab)
-      - name: Clone Antora UI
-        run: |
-          mkdir -p ui
-          git clone https://github.com/antora/antora-ui-default.git ui/antora-ui-default
+      # 4) OVDE je trik: checkout Antora UI repo kao drugi repo
+      - name: Checkout Antora UI
+        uses: actions/checkout@v4
+        with:
+          repository: antora/antora-ui-default
+          path: ui/antora-ui-default
 
-      # 3) instaliraj UI zavisnosti i napravi bundle
+      # 5) build UI bundle
       - name: Build Antora UI bundle
         working-directory: ui/antora-ui-default
         run: |
           npm install
           npx gulp bundle
 
-      # 4) sad buildaj sajt (u playbooku je putanja na ./ui/antora-ui-default/build/ui-bundle.zip)
+      # 6) sad buildaj tvoj sajt (u playbooku je putanja na ./ui/antora-ui-default/build/ui-bundle.zip)
       - name: Build Antora site
         run: npx antora antora-playbook.yml
 
+      # 7) Pages setup
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
