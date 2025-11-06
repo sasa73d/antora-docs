@@ -1,0 +1,21 @@
+site:
+  title: Moj Docs Portal (lokalno)
+  start_page: mydocs::index.adoc
+
+content:
+  sources:
+    - url: .
+      start_path: docs-site
+      branches: HEAD
+
+asciidoc:
+  attributes:
+    page-pagination: true
+
+ui:
+  bundle:
+    url: ./ui/antora-ui-default/build/ui-bundle.zip
+    snapshot: true
+
+output:
+  dir: public
