@@ -1,0 +1,5 @@
+name: mulesoft-docs
+title: MuleSoft Docs
+version: sr
+nav:
+  - modules/ROOT/nav.adoc

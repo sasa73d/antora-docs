@@ -5,7 +5,10 @@ site:
 content:
   sources:
     - url: .
-      start_path: docs-site
+      start_path: docs-site/en
+      branches: HEAD
+    - url: .
+      start_path: docs-site/sr
       branches: HEAD
 
 asciidoc:

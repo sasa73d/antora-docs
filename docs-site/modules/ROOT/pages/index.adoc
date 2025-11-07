@@ -1,5 +1,0 @@
-= Dobrodošli
-Ovo je moja prva Antora stranica.
-
-== Šta sad?
-Ako vidiš ovo u browseru – radi!
