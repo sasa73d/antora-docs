@@ -1,5 +1,5 @@
 name: mulesoft-docs
-title: MuleSoft Docs
-version: en
+title: MuleSoft Docs (EN)
+version: en 
 nav:
   - modules/ROOT/nav.adoc
