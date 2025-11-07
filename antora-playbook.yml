@@ -1,6 +1,6 @@
 site:
   title: Moj Docs Portal (lokalno)
-  start_page: mydocs::index.adoc
+  start_page: mulesoft-docs:en:index.adoc
 
 content:
   sources:
